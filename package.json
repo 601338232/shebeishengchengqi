@@ -1,30 +1,48 @@
 {
-  "name": "signalrgb-editor",
+  "name": "signalrgb-device-editor",
   "version": "1.0.0",
-  "description": "SignalRGB 设备模型编辑器",
+  "description": "SignalRGB Device Model Editor",
   "main": "main.js",
+  "homepage": "./",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win nsis"
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "build-all": "electron-builder -wml"
   },
+  "keywords": ["signalrgb", "editor", "electron"],
+  "author": "Your Name",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^30.0.0",
-    "electron-builder": "^24.0.0"
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
   },
   "build": {
-    "appId": "com.yourname.signalrgb",
-    "productName": "SignalRGB Editor",
-    "files": [
-      "**/*"
-    ],
+    "appId": "com.yourname.signalrgb-editor",
+    "productName": "SignalRGB Device Editor",
     "directories": {
       "output": "dist"
     },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!dist",
+      "!.github"
+    ],
     "win": {
       "target": [
-        "nsis"
-      ]
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icon.ico"
     },
-    "publish": "never"
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }
