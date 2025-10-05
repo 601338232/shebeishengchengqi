@@ -1,0 +1,29 @@
+{
+  "name": "signalrgb-editor",
+  "version": "1.0.0",
+  "description": "SignalRGB 设备模型编辑器",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.yourname.signalrgb",
+    "productName": "SignalRGB Editor",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}
